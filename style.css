@@ -59,7 +59,16 @@ a:hover {
 }
 
 .logo {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.logo img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo:hover {
@@ -174,7 +183,6 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
-  
 }
 
 .section__text {
@@ -354,11 +362,34 @@ article .icon {
   cursor: default;
 }
 
+/* Make the inline SVG checkmarks render consistently */
+article .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
 /* PROJECTS SECTION */
 
 #projects {
   position: relative;
   padding-top: 15%;
+}
+
+/* Allow multiple project cards per row while keeping the same card style */
+.projects-grid {
+  flex-wrap: wrap;
+}
+
+.projects-grid .details-container {
+  flex: 1 1 320px;
+  max-width: 420px;
+}
+
+.project-description {
+  margin: 0 1.5rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.35rem;
+  color: rgb(85, 85, 85);
 }
 
 .color-container {
@@ -431,4 +462,325 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+/* ===== SKILLS (proper grid + logo list) ===== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0.75rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.skill-logo {
+  font-size: 2rem;
+  width: 2.2rem;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.skill-text h3 {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.2rem;
+}
+
+.skill-text p {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  color: rgb(85, 85, 85);
+}
+
+/* For skills without a known logo: use a clean badge */
+.skill-badge {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid rgb(163, 163, 163);
+  background: white;
+  color: black;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ABOUT (CENTERED VERSION) ===== */
+
+.about-centered {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.about-card {
+  border-radius: 2rem;
+  border: 1px solid rgb(163, 163, 163);
+  background: white;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.about-card h3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.muted {
+  color: rgb(85, 85, 85);
+  font-size: 0.95rem;
+  line-height: 1.4rem;
+}
+
+.about-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.pill {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgb(200, 200, 200);
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 0.85rem;
+}
+
+.about-bio {
+  border-radius: 2rem;
+  border: 1px solid rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
+  padding: 2rem;
+}
+
+.about-lead {
+  font-size: 1.05rem;
+  line-height: 1.7rem;
+  margin-bottom: 1.5rem;
+  color: rgb(55, 55, 55);
+}
+
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.point {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.point-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(53, 53, 53);
+  margin-top: 0.6rem;
+}
+
+.about-cta {
+  margin-top: 1.8rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== HERO VISUAL (Code Card) ===== */
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 420px;
+}
+
+.code-card {
+  width: 100%;
+  border-radius: 1.8rem;
+  background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
+  padding: 1.5rem;
+  color: white;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  transition: 0.4s ease;
+}
+
+.code-card:hover {
+  transform: translateY(-6px);
+}
+
+.code-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.code-header span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-header span:nth-child(1) {
+  background: #ff5f56;
+}
+
+.code-header span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.code-header span:nth-child(3) {
+  background: #27c93f;
+}
+
+.code-content {
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  white-space: pre-wrap;
+}
+
+/* Syntax Highlighting */
+.code-key {
+  color: #c792ea;
+}
+
+.code-string {
+  color: #ecc48d;
+}
+
+.code-number {
+  color: #82aaff;
+}
+
+/* Adjust Hero Layout */
+#profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  height: 80vh;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  #profile {
+    flex-direction: column;
+    gap: 3rem;
+    height: auto;
+    padding-top: 4rem;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* ===== PROJECT VISUAL REPLACEMENT ===== */
+
+.project-visual {
+  height: 200px;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.project-badge {
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  width: fit-content;
+  backdrop-filter: blur(6px);
+}
+
+.project-icon {
+  font-size: 3rem;
+  align-self: flex-end;
+  opacity: 0.9;
+}
+
+/* Different gradient backgrounds */
+
+.nebula-bg {
+  background: linear-gradient(135deg, #3a7bd5, #3a6073);
+}
+
+.meet-bg {
+  background: linear-gradient(135deg, #8360c3, #2ebf91);
+}
+
+.calendar-bg {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.cloud-bg {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+}
+
+.cart-bg {
+  background: linear-gradient(135deg, #f2994a, #f2c94c);
+}
+
+.campus-bg {
+  background: linear-gradient(135deg, #141e30, #243b55);
 }
